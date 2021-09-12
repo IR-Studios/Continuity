@@ -41,6 +41,11 @@ public class HUDManager : MonoBehaviour
         _Stamina.value = stamina;
     }
 
+    public void UpdateVitals(float hunger, float thirst)
+    {
+        
+    }
+
     //Interact Text
     public void InteractOn(string text)
     {

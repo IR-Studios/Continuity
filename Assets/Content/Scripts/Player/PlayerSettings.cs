@@ -30,6 +30,14 @@ public class PlayerSettings : ScriptableObject
     public float StaminaFallRate;
     public float StaminaRegenRate;
 
+    [Header("Hunger")]
+    public float maxHunger;
+    public float hungerFallRate;
+
+    [Header("Thirst")]
+    public float maxThirst;
+    public float thirstFallRate;
+
     [Header("Misc.")]
     public float ItemPickUpRange;
 }

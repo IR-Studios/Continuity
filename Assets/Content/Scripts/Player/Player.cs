@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [Header("Vitals")]
     public float _health; //Current Health
     public float _stamina; //Current Stamina
+    public float _hunger; //Current Hunger
+    public float _thirst; //Current Thirst
 
     [HideInInspector]
     public PlayerMovement movement;
@@ -26,6 +28,9 @@ public class Player : MonoBehaviour
 
         _stamina = settings.MaxStamina;
         HUD.UpdateStamina(settings.MaxStamina, _stamina);
+
+        _hunger = settings.maxHunger;
+        _thirst = settings.maxThirst;
     }
 
     private void Update()
