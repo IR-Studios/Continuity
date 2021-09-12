@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        ChangeStamina();
+
         //JUMP
         if (Input.GetKeyDown(KeyCode.Space) && !inJump)
         {
@@ -83,15 +85,14 @@ public class PlayerMovement : MonoBehaviour
         if (Sprinting && Cam.fieldOfView <= StartFOV + 10)
         {
             Cam.fieldOfView += 5 * Time.deltaTime;
+
         }
         else if (!Sprinting)
         {
             if (Cam.fieldOfView >= StartFOV)
             {
                 Cam.fieldOfView -= 5 * Time.deltaTime;
-
             }
-
         }
     }
 
@@ -142,6 +143,22 @@ public class PlayerMovement : MonoBehaviour
             cc.height = cc.height * 2;
             isCrouch = false;
         }
+    }
+
+    public void ChangeStamina()
+    {
+        if (Sprinting)
+        {
+            player._stamina -= Settings.StaminaFallRate * Time.deltaTime;
+        } 
+            else if (!Sprinting)
+        {
+                if (player._stamina < Settings.MaxStamina)
+                {
+                    player._stamina += Settings.StaminaRegenRate * Time.deltaTime;
+                }
+        }
+        player.HUD.UpdateStamina(Settings.MaxStamina, player._stamina);
     }
 
 }

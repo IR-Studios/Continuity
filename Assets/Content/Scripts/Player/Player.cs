@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
         ML = Cam.GetComponent<MouseLook>();
         movement = GetComponent<PlayerMovement>();
         HUD = GetComponent<HUDManager>();
+
+        _stamina = settings.MaxStamina;
+        HUD.UpdateStamina(settings.MaxStamina, _stamina);
     }
 
     private void Update()

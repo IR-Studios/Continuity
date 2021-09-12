@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.375
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2395,6 +2395,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractText: {fileID: 0}
+  _Health: {fileID: 0}
+  _Stamina: {fileID: 0}
+  _Hunger: {fileID: 0}
+  _Thirst: {fileID: 0}
   ObjTitle: {fileID: 941233705}
   ObjText: {fileID: 1403645744}
   ObjNotif: {fileID: 1238318004}
