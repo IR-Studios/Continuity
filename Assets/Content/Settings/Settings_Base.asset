@@ -25,4 +25,8 @@ MonoBehaviour:
   MaxStamina: 100
   StaminaFallRate: 3
   StaminaRegenRate: 2
+  maxHunger: 100
+  hungerFallRate: 0.3
+  maxThirst: 100
+  thirstFallRate: 0.1
   ItemPickUpRange: 2

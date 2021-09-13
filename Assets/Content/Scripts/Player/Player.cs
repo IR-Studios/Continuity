@@ -36,11 +36,19 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Interact();
+        DepleteVitals();
     }
 
     private void FixedUpdate()
     {
        
+    }
+
+    public void DepleteVitals()
+    {
+        _hunger -= settings.hungerFallRate * Time.deltaTime;
+        _thirst -= settings.thirstFallRate * Time.deltaTime;
+        HUD.UpdateVitals(_hunger, _thirst);
     }
 
     public void Interact()

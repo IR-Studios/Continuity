@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         //SPRINT
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isCrouch && !Sprinting)
         {
-            MovementSpeed = Settings.MovementSpeed + 100.0f;
+            MovementSpeed = Settings.MovementSpeed + 200.0f;
 
             Sprinting = true;
         }
@@ -84,14 +84,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Sprinting && Cam.fieldOfView <= StartFOV + 10)
         {
-            Cam.fieldOfView += 5 * Time.deltaTime;
+            Cam.fieldOfView += 100 * Time.deltaTime;
 
         }
         else if (!Sprinting)
         {
             if (Cam.fieldOfView >= StartFOV)
             {
-                Cam.fieldOfView -= 5 * Time.deltaTime;
+                Cam.fieldOfView -= 100 * Time.deltaTime;
             }
         }
     }

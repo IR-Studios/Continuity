@@ -43,7 +43,13 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateVitals(float hunger, float thirst)
     {
-        
+        PlayerSettings PS = gameObject.GetComponent<Player>().settings;
+        _Hunger.maxValue = PS.maxHunger;
+        _Thirst.maxValue = PS.maxThirst;
+
+
+        _Hunger.value = hunger;
+        _Thirst.value = thirst;
     }
 
     //Interact Text
