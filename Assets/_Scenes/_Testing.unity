@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clampInDegrees: {x: 360, y: 180}
   lockCursor: 1
-  sensitivity: {x: 1, y: 1}
+  sensitivity: {x: 0.5, y: 0.5}
   smoothing: {x: 3, y: 3}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
@@ -2263,6 +2263,8 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 30afed818bda6d24692e5ce4f57d3dc4, type: 2}
   _health: 0
   _stamina: 0
+  _hunger: 0
+  _thirst: 0
   movement: {fileID: 0}
   HUD: {fileID: 0}
 --- !u!114 &1388787590
@@ -3324,7 +3326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Camp Location
+  m_text: Debug.Camp_Location
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a435aebf24c079846a3318e93da4d403, type: 2}
   m_sharedMaterial: {fileID: -5664972423446683047, guid: a435aebf24c079846a3318e93da4d403,
