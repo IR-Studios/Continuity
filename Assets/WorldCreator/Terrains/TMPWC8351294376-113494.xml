@@ -1,0 +1,59 @@
+<WorldCreator Version="2.0">
+  <Generate IsGenerateTerrain="True" IsGenerateTexturing="True" IsGenerateTrees="True" IsGenerateDetails="True" IsGeneratePost="True" IsGenerateMeshes="True" />
+  <General IsUseGPU="False" IsRealtimeTerrainGenerationEnabled="False" IsRandomSeed="False" IsTileable="True" TilePosX="0" TilePosZ="-1" BorderBlending="0.2" AutoAlign="True" Seed="0" ShowInformation="True" IsVisualizeHeatmaps="False" HeatMaterialBasicColor="FFFFFFFF" HeatMaterialHeatColor="FF0000FF" HeightmapResolution="512" ControlmapResolution="512" DetailmapResolution="512" DetailResolutionPerPatch="16" BasemapResolution="512" FixedSizeRatio="True" TerrainRealWidth="1000" TerrainRealHeight="208" PixelError="2" BasemapDistance="8000" CastShadows="True" DetailDistance="250" DetailDensity="0.5" GrassTint="FFFFFFFF" GrassWindSpeed="0.5" GrassWindBending="0.15" GrassWindSize="1" Sun="" SunID="" SeaPlane="" SeaPlaneID="" MeanSeaLevel="0" MaterialType="BuiltInStandard" MaterialDepthFactor="0.03" MaterialTessellationDisplacementStrength="1" MaterialTessellationMaxDistance="100" MaterialTessellationMinDistance="10" MaterialTessellationStrength="4" CustomMaterial="" MaterialGradient="" InputTerrainID="">
+    <InputTerrain InputTerrainType="UnityTerrain" InputTerrain="" InputTerrainTexture="" InputTerrainOperationType="Default" InputTerrainStrength="1" InputTerrainResolution="32" InputTerrainOffsetNegX="0" InputTerrainOffsetNegZ="0" InputTerrainOffsetPosX="1" InputTerrainOffsetPosZ="1" InputTerrainBorderBlending="0.1" InputTerrainHeightOffset="0" InputTerrainHeightScale="1" />
+    <Masks>
+      <Mask IsEnabled="True" Name="Mask" Texture="" InvertMask="False" Weight="1" HeightMultiplicator="1">
+        <Filter IsEnabled="True" Name="Basic" Library="WorldCreatorEngine.dll" TerrainHeight="0:0:1:1" MeanSeaLevelType="Unused" CoastOffset="0" SmoothHeightStart="0" SmoothHeightEnd="0" TerrainSlope="0:0:90:90" SmoothSlopeStart="0" SmoothSlopeEnd="0">
+          <FilterValue Name="General Strength" Value="100" />
+          <FilterLevel Name="Level Strength 2" Value="0" />
+          <FilterLevel Name="Level Strength 4" Value="0" />
+          <FilterLevel Name="Level Strength 8" Value="100" />
+          <FilterLevel Name="Level Strength 16" Value="100" />
+          <FilterLevel Name="Level Strength 32" Value="100" />
+          <FilterLevel Name="Level Strength 64" Value="100" />
+          <FilterLevel Name="Level Strength 128" Value="100" />
+          <FilterLevel Name="Level Strength 256" Value="100" />
+          <FilterLevel Name="Level Strength 512" Value="100" />
+          <FilterLevel Name="Level Strength 1024" Value="100" />
+          <FilterLevel Name="Level Strength 2048" Value="100" />
+          <FilterLevel Name="Level Strength 4096" Value="100" />
+          <FilterLevel Name="Level Strength 8192" Value="100" />
+        </Filter>
+        <Filter IsEnabled="True" Name="Canyon" Library="WorldCreatorFilterset01.dll" TerrainHeight="0:0:1:1" MeanSeaLevelType="Unused" CoastOffset="0" SmoothHeightStart="0" SmoothHeightEnd="0" TerrainSlope="0:0:90:90" SmoothSlopeStart="0" SmoothSlopeEnd="0">
+          <FilterValue Name="General Strength" Value="52" />
+          <FilterValue Name="Sharpness" Value="5" />
+          <FilterValue Name="Sharpness Strength" Value="153" />
+          <FilterValue Name="Modulator" Value="6" />
+          <FilterLevel Name="Level Strength 2" Value="100" />
+          <FilterLevel Name="Level Strength 4" Value="100" />
+          <FilterLevel Name="Level Strength 8" Value="100" />
+          <FilterLevel Name="Level Strength 16" Value="100" />
+          <FilterLevel Name="Level Strength 32" Value="100" />
+          <FilterLevel Name="Level Strength 64" Value="100" />
+          <FilterLevel Name="Level Strength 128" Value="100" />
+          <FilterLevel Name="Level Strength 256" Value="100" />
+          <FilterLevel Name="Level Strength 512" Value="100" />
+          <FilterLevel Name="Level Strength 1024" Value="100" />
+          <FilterLevel Name="Level Strength 2048" Value="100" />
+          <FilterLevel Name="Level Strength 4096" Value="100" />
+          <FilterLevel Name="Level Strength 8192" Value="100" />
+        </Filter>
+      </Mask>
+    </Masks>
+  </General>
+  <Texturing>
+    <TextureDescription MapDiffuse="Assets/_Content/_3rd-Party/PBR Ground Materials #1 [Dirt&amp; Grass]/Textures/Grass_08/Grass_08_Diffuse.tga" MapNormal="Assets/_Content/_3rd-Party/PBR Ground Materials #1 [Dirt&amp; Grass]/Textures/Grass_08/Grass_08_Normal.tga" IsEnabled="True" MapHeight="" MaskType="Unused" SelectedRoadRiverIndex="0" MaskNoisemapResolution="512" Mask="" MaskNoiseScale="100" MaskNoiseSeed="245123" MaskNoiseOctaves="10" MaskNoiseDepth="0" MaskThreshold="0.5" MaskContrast="1" InvertMask="False" LockToResolution="False" TileSize="4" TileOffsetX="0" TileOffsetY="0" Metallic="0" HeightOffset="0" HeightScale="1" MeanSeaLevelType="Unused" CoastOffset="0" TerrainHeight="0:0:1:1" HeightNoiseType="Unused" HeightNoisemapResolution="512" HeightNoise="" HeightNoiseScale="8" HeightNoiseSeed="245123" HeightNoiseOctaves="10" HeightNoiseDepth="0" HeightNoiseFactor="0.1" SmoothHeightStart="0.001" SmoothHeightEnd="0.001" TerrainSlope="0:0:90:90" SmoothSlopeStart="0.1" SmoothSlopeEnd="0.1" FollowSun="False" InvertSunDirection="False" FollowSunSmoothness="1" CavityType="None" CavitySteps="5" CavityStepSize="10" CavityStrength="1" WeightMultiplicator="1" ColorPickMap="" ColorPickColor="(0.00, 0.00, 0.00)" ColorPickThreshold="0" ColorPickSmoothness="0" />
+    <TextureDescription MapDiffuse="Assets/Rocks and Boulders 2/Rocks/Source/Textures/Rockdetail9.tif" MapNormal="Assets/Rocks and Boulders 2/Rocks/Source/Textures/Rockdetail9.tif" IsEnabled="True" MapHeight="" MaskType="Unused" SelectedRoadRiverIndex="0" MaskNoisemapResolution="512" Mask="" MaskNoiseScale="100" MaskNoiseSeed="245123" MaskNoiseOctaves="10" MaskNoiseDepth="0" MaskThreshold="0.5" MaskContrast="1" InvertMask="False" LockToResolution="False" TileSize="10" TileOffsetX="0" TileOffsetY="0" Metallic="0" HeightOffset="0" HeightScale="1" MeanSeaLevelType="Unused" CoastOffset="0" TerrainHeight="0:0:1:1" HeightNoiseType="Unused" HeightNoisemapResolution="512" HeightNoise="" HeightNoiseScale="8" HeightNoiseSeed="245123" HeightNoiseOctaves="10" HeightNoiseDepth="0" HeightNoiseFactor="0.1" SmoothHeightStart="0.001" SmoothHeightEnd="0.001" TerrainSlope="0:30:90:90" SmoothSlopeStart="0.1" SmoothSlopeEnd="0.1" FollowSun="False" InvertSunDirection="False" FollowSunSmoothness="1" CavityType="None" CavitySteps="5" CavityStepSize="10" CavityStrength="1" WeightMultiplicator="1" ColorPickMap="" ColorPickColor="(0.00, 0.00, 0.00)" ColorPickThreshold="0" ColorPickSmoothness="0" />
+  </Texturing>
+  <Objects>
+    <Trees RandomSeed="False" Seed="0" />
+    <Details RandomSeed="False" Seed="0">
+      <Detail Texture="Assets/_Content/_3rd-Party/DreamForestTree/Textures/Grass/grass plant 4.png" IsEnabled="True" EnableTextureDistribution="False" SelectedTextureDistributionIndex="0" TextureThresholdRange="0:0:1:1" MaskType="Unused" SelectedRoadRiverIndex="0" MaskNoisemapResolution="512" Mask="" MaskNoiseScale="8" MaskNoiseSeed="245123" MaskNoiseOctaves="10" MaskNoiseDepth="0" MaskThreshold="0.5" MaskContrast="1" InvertMask="False" Billboard="False" ColorHealthy="876719FF" ColorDry="5F6C17FF" LockHeightScaleToWidthScale="True" HeightScale="0.1:0.9:10:1.450443" WidthScale="0.1:0.9:10:1.450443" MeanSeaLevelType="Unused" CoastOffset="0" TerrainHeight="0:0:1:1" SmoothHeightStart="0" SmoothHeightEnd="0" TerrainSlope="0:0:90:25" SmoothSlopeStart="0.1" SmoothSlopeEnd="0.1" FollowSun="False" InvertSunDirection="False" FollowSunThreshold="0.75" CavityType="None" CavitySteps="5" CavityStepSize="10" CavityStrength="1" NoiseSpread="0.1" Occurence="0.3395061" ColorPickMap="" ColorPickColor="(0.00, 0.00, 0.00)" ColorPickThreshold="0" ColorPickSmoothness="0" />
+      <Detail Texture="Assets/_Content/_3rd-Party/DreamForestTree/Textures/Grass/grass plant 2.png" IsEnabled="True" EnableTextureDistribution="False" SelectedTextureDistributionIndex="0" TextureThresholdRange="0:0:1:1" MaskType="Unused" SelectedRoadRiverIndex="0" MaskNoisemapResolution="512" Mask="" MaskNoiseScale="8" MaskNoiseSeed="245123" MaskNoiseOctaves="10" MaskNoiseDepth="0" MaskThreshold="0.5" MaskContrast="1" InvertMask="False" Billboard="False" ColorHealthy="FFFFFFFF" ColorDry="808080FF" LockHeightScaleToWidthScale="True" HeightScale="0.1:0.9:10:1.1" WidthScale="0.1:0.9:10:1.1" MeanSeaLevelType="Unused" CoastOffset="0" TerrainHeight="0:0:1:1" SmoothHeightStart="0" SmoothHeightEnd="0" TerrainSlope="0:0:90:25" SmoothSlopeStart="0.1" SmoothSlopeEnd="0.1" FollowSun="False" InvertSunDirection="False" FollowSunThreshold="0.75" CavityType="None" CavitySteps="5" CavityStepSize="10" CavityStrength="1" NoiseSpread="0.1" Occurence="1" ColorPickMap="" ColorPickColor="(0.00, 0.00, 0.00)" ColorPickThreshold="0" ColorPickSmoothness="0" />
+    </Details>
+    <DetailMeshes RandomSeed="False" Seed="0" />
+    <Meshes RandomSeed="False" Static="False" Seed="0" />
+  </Objects>
+  <Post />
+</WorldCreator>

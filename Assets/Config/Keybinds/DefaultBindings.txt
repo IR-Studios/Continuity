@@ -1,0 +1,8 @@
+Jump=Space
+Crouch=LeftControl
+Sprint=LeftShift
+Interact=E
+MoveForward=W
+MoveBackward=S
+MoveLeft=A
+MoveRight=D
