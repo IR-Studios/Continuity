@@ -5522,7 +5522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enable: 1
   _amplitude: 0.0025
-  _frequency: 15
+  _frequency: 5
   _cam: {fileID: 979188998540179679}
   _camHolder: {fileID: 1664859609769974201}
   _startingFrequency: 0

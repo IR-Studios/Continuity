@@ -19,6 +19,11 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI ObjText;
     public GameObject ObjNotif;
 
+    [Header("Inventory")]
+    public GameObject InventoryObj;
+    [HideInInspector]
+    public bool InvOpen = false;
+
     private void Awake()
     {
         //Finding all the HUD objects
@@ -33,6 +38,7 @@ public class HUDManager : MonoBehaviour
     {
         InteractText = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
         InteractOff();
+        closeInventory();
     }
 
     public void UpdateStamina(float maxStamina, float stamina) 
@@ -62,5 +68,16 @@ public class HUDManager : MonoBehaviour
     {
         InteractText.enabled = false;
         InteractText.text = "";
+    }
+
+    public void openInventory() 
+    {
+        InvOpen = true;
+        InventoryObj.SetActive(true);
+    }
+    public void closeInventory() 
+    {
+        InvOpen = false;
+        InventoryObj.SetActive(false);
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +17,11 @@ public class PlayerSettings : ScriptableObject
     [Header("Crouch")]
     public float CrouchHeight;
     public float crouchSpeed;
+
+    [Header("Headbob Parameters")]
+    [SerializeField] public float walkBobSpeed = 14f;
+    [SerializeField] public float walkBobAmount = 14f;
+
 
     [Header("Camera")]
     public float MaxViewingAngle;

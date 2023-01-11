@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             MovementSpeed = Settings.MovementSpeed + 200.0f;
             HBC._frequency = 30.0f;
-            HBC._amplitude = 0.0035f;
+            HBC._amplitude = 0.001f;
 
             Sprinting = true;
         }

@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        Cam = GameObject.Find("Camera");
+        Cam = GameObject.Find("CamHolder");
         ML = Cam.GetComponent<MouseLook>();
         movement = GetComponent<PlayerMovement>();
         HUD = GetComponent<HUDManager>();
@@ -40,6 +40,20 @@ public class Player : MonoBehaviour
     {
         Interact();
         DepleteVitals();
+
+        if (Rebind.GetInputDown("Inventory") && !HUD.InvOpen) 
+        {
+            HUD.openInventory();
+            ML.enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        } else if (Rebind.GetInputDown("Inventory") && HUD.InvOpen) 
+        {
+            HUD.closeInventory();
+            ML.enabled = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     private void FixedUpdate()
@@ -86,6 +100,15 @@ public class Player : MonoBehaviour
                 }
              
             } 
+            if (hit.transform.tag == "tree") 
+            {
+                Tree t = hit.transform.GetComponentInParent<Tree>();
+                HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Destroy Tree");
+                if (Rebind.GetInputDown("Interact"))
+                {
+                    t.SetTreeHealth(0.0f);
+                }
+            }
 
            
         } else

@@ -7,6 +7,7 @@ TagManager:
   - WorldCreator
   - item
   - FirstSpawn
+  - tree
   layers:
   - Default
   - TransparentFX
