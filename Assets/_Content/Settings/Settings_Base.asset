@@ -19,6 +19,8 @@ MonoBehaviour:
   SpeedInJump: 1.2
   CrouchHeight: 2
   crouchSpeed: 100
+  walkBobSpeed: 14
+  walkBobAmount: 14
   MaxViewingAngle: 0
   MaxHealth: 100
   HealthRechargeRate: 4
@@ -26,7 +28,7 @@ MonoBehaviour:
   StaminaFallRate: 3
   StaminaRegenRate: 2
   maxHunger: 100
-  hungerFallRate: 0.3
+  hungerFallRate: 0.06
   maxThirst: 100
-  thirstFallRate: 0.1
+  thirstFallRate: 0.02
   ItemPickUpRange: 2
