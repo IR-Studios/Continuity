@@ -68,6 +68,15 @@ public class Player : MonoBehaviour
         HUD.UpdateVitals(_hunger, _thirst);
     }
 
+    public void Heal(int amount) 
+    {
+        _health += amount;
+        if (_health >= settings.MaxHealth) 
+        {
+            _health = settings.MaxHealth;
+        }
+    }
+
     public void Interact()
     {
         RaycastHit hit;
