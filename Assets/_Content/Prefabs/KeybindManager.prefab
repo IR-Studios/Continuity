@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5499569725252631792}
   - component: {fileID: 5499569725252631793}
+  - component: {fileID: 5499569724365450699}
   m_Layer: 0
   m_Name: KeybindManager
   m_TagString: Untagged
@@ -42,5 +43,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea3b1d9653029e6428f0e8241e136c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5499569724365450699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499569725252631806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c570d13ba099f54db27744e4c988a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

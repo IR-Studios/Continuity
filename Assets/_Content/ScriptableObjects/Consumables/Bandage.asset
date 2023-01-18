@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Bandage
   m_EditorClassIdentifier: 
   itemName: Bandage
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 139c4b53edcf01c4780b2d9ca55b6337, type: 3}
   itemDescription: 
   itemAmount: 0
-  isStackable: 0
-  worldObject: {fileID: 0}
+  isStackable: 1
+  worldObject: {fileID: 5414277353049878746, guid: 41b1947975fe33b4db72dd5c5ca38a6b,
+    type: 3}
   itemType: 0
   heal: 30
   hunger: 0

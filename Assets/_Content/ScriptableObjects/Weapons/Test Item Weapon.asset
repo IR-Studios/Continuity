@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2b1e3e6bd3d664ab66caec04c3582d, type: 3}
+  m_Name: Test Item Weapon
+  m_EditorClassIdentifier: 
+  itemName: 
+  itemIcon: {fileID: 0}
+  itemDescription: 
+  itemAmount: 0
+  isStackable: 0
+  isWeapon: 0
+  worldObject: {fileID: 24484842686198822, guid: 63c7158923770194ab566343a9856d46,
+    type: 3}
+  weaponName: 
+  weaponDMG: 0
+  weaponHealth: 0
+  WeaponPrefab: {fileID: 7132166328131866373, guid: abbfc87d4fa1c7b4d921dfffac6dfc43,
+    type: 3}

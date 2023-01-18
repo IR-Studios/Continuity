@@ -10,7 +10,7 @@ public class IR_Item : ScriptableObject
     public string itemDescription;
     public int itemAmount;
     public bool isStackable;
-
+    public bool isWeapon;
     public GameObject worldObject;
 
     public virtual void Use() 

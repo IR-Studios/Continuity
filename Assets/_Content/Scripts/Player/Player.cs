@@ -47,12 +47,15 @@ public class Player : MonoBehaviour
             ML.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            movement.rb.constraints = RigidbodyConstraints.FreezeAll;
         } else if (Rebind.GetInputDown("Inventory") && HUD.InvOpen) 
         {
             HUD.closeInventory();
             ML.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            movement.rb.constraints = RigidbodyConstraints.None;
+            movement.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
@@ -80,7 +83,7 @@ public class Player : MonoBehaviour
     public void Interact()
     {
         RaycastHit hit;
-        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, 2.0f))
+        if (Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, 4.0f))
         {
             Debug.DrawRay(Cam.transform.position, Cam.transform.forward * hit.distance, Color.yellow);
 
@@ -99,6 +102,15 @@ public class Player : MonoBehaviour
                             obj.OBJM.Objectives[obj.ObjNum].isComplete = true;
                         }
                     }
+                } else if (hit.transform.GetComponent<ItemInWorld>() != null)  
+                {
+                    ItemInWorld IW = hit.transform.GetComponent<ItemInWorld>();
+                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName);
+                    if (Rebind.GetInputDown("Interact"))
+                        {
+                            IR_Inventory.instance.AddItem(IW.item, IW.WorldWeaponHealth);
+                            Destroy(hit.transform.gameObject);
+                        }
                 } else
                 {
                     HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Set Up Tent");

@@ -1,21 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class IR_InventorySlot : MonoBehaviour
 {
-    [Tooltip("If Item is a weapon, store information here.")]
-    public Weapon weapon;
     [Tooltip("If item is an item, store information here.")]
     public IR_Item item;
 
     [Header("Slot Information")]
-
+    public bool isEmpty; //Is this slot empty? yes or no.
     public bool isStackable; //Is this item stackable? yes or no.
     public int amount; //Amount of this item in the stack.
 
     [Header("Weapon Stat Information")]
     public float weaponHealth;
     public float weaponDMG;
+
+    [Header("Slot UI Elements")]
+    public Image itemIcon;
+    public TextMeshProUGUI itemAmountText;
+
+    public void Start() 
+    {
+        
+        
+    }
+
+    public void Update() 
+    {
+        if (item == null) 
+        {
+            isEmpty = true;
+        } else {
+            isEmpty = false;
+        }
+    }
 
 }

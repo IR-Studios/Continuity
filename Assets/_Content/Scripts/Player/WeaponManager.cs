@@ -5,8 +5,8 @@ using Continuity.Keybinds;
 
 public class WeaponManager : MonoBehaviour
 {
-    public List<Weapon> CurrentWeapons = new List<Weapon>();
-    public Weapon activeWeapon;
+    public List<Item_Weapon> CurrentWeapons = new List<Item_Weapon>();
+    public Item_Weapon activeWeapon;
     public GameObject activeWeaponObj;
     public GameObject CamHolder;
 
@@ -26,15 +26,16 @@ public class WeaponManager : MonoBehaviour
         }
         if (Rebind.GetInputDown("Swap")) 
         {
-            swap(CurrentWeapons[0], CurrentWeapons[1]);
+            //swap(CurrentWeapons[0], CurrentWeapons[1]);
+            unEquip();
         }
 
         //transform.rotation = CamHolder.transform.rotation;
     }
 
-    public void swap(Weapon W1, Weapon W2) 
+    public void swap(Item_Weapon W1, Item_Weapon W2) 
     {
-        Weapon temp = W1;
+        Item_Weapon temp = W1;
         W1 = W2;
         W2 = temp;
         CurrentWeapons[0] = W1;
@@ -50,6 +51,12 @@ public class WeaponManager : MonoBehaviour
         activeWeapon = CurrentWeapons[WeaponNum];
         spawnInHand();
         
+    }
+
+    public void unEquip() 
+    {
+        Destroy(activeWeaponObj);
+        activeWeapon = null;
     }
 
     public void spawnInHand() 

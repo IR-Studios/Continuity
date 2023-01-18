@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Continuity.Keybinds;
 
 namespace Continuity.UI
@@ -9,6 +10,18 @@ namespace Continuity.UI
 public class MenuManager : MonoBehaviour
 {
     public List<Menu> Menus = new List<Menu>();
+    
+    public string MapName;
+
+    public void setSceneToLoad(string SceneName) 
+    {
+        MapName = SceneName;
+    }
+
+    public void LoadScene() 
+    {
+        SceneManager.LoadScene(MapName);
+    }
 
     public void setMenuActive(string menuName) 
     {

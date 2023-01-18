@@ -9,7 +9,7 @@ public class Weapon : ScriptableObject
     public string weaponName;
     [InspectorName("Weapon Damage Output")]
     public float weaponDMG;
-    [InspectorName("Weapong Durability")]
+    [InspectorName("Weapon Durability")]
     public float weapongHealth;
     public GameObject WeaponPrefab;
 }
