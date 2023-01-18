@@ -7,6 +7,8 @@ using Continuity.Movement;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
     public PlayerSettings settings;
     MouseLook ML;
     [HideInInspector]
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        instance = this;
         Cam = GameObject.Find("CamHolder");
         ML = Cam.GetComponent<MouseLook>();
         movement = GetComponent<PlayerMovement>();
@@ -80,6 +83,25 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void Drink(int amount) 
+    {
+        _thirst += amount;
+        if (_thirst >= settings.maxThirst) 
+        {
+            _thirst = settings.maxThirst;
+        }
+    }
+
+    public void Eat(int amount) 
+    {
+        _hunger += amount;
+        if (_hunger >= settings.maxHunger) 
+        {
+            _hunger = settings.maxHunger;
+        }
+    }
+
+    #region Interactions
     public void Interact()
     {
         RaycastHit hit;
@@ -138,6 +160,8 @@ public class Player : MonoBehaviour
         }
         
     }
+    #endregion
+
 
 
 }

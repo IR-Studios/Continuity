@@ -7,6 +7,7 @@ public class MeleeWeapon : MonoBehaviour
 {
     public string weaponName; 
     public float weaponDMG; 
+    public int weaponHealth;
 
 
      [HideInInspector]

@@ -8,10 +8,15 @@ public class IR_Item : ScriptableObject
     public Sprite itemIcon;
     [TextArea]
     public string itemDescription;
-    public int itemAmount;
+    public int stackableLimit;
+    public int itemHealth;
     public bool isStackable;
-    public bool isWeapon;
+    
     public GameObject worldObject;
+    [Header("Weapon Information")]
+    public Item_Weapon weapon;
+    public bool isWeapon;
+    
 
     public virtual void Use() 
     {

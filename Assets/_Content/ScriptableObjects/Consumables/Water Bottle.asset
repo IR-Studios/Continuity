@@ -15,11 +15,14 @@ MonoBehaviour:
   itemName: Water Bottle
   itemIcon: {fileID: 21300000, guid: ad08762eacc27cc4caeb29c4b6bbc49e, type: 3}
   itemDescription: 
-  itemAmount: 0
+  stackableLimit: 10
+  itemHealth: 0
   isStackable: 1
   worldObject: {fileID: 207408972528779069, guid: f3cd49ada7ad0dd47b3cf66db7bff8bc,
     type: 3}
-  itemType: 0
+  weapon: {fileID: 0}
+  isWeapon: 0
+  itemType: 2
   heal: 0
   hunger: 0
-  thirst: 50
+  thirst: 5

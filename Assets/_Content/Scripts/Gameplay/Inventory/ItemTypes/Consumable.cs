@@ -17,5 +17,19 @@ public class Consumable : IR_Item
     public override void Use()
     {
         //Implement use function here. 
+        if (itemType == type.Health) 
+        {
+            Player.instance.Heal(heal);
+        } else if (itemType == type.Food) 
+        {
+            Player.instance.Eat(hunger);
+        } else if (itemType == type.Drink) 
+        {
+            Player.instance.Drink(thirst);
+        } else if (itemType == type.Potion) 
+        {
+            
+        }
+
     }
 }
