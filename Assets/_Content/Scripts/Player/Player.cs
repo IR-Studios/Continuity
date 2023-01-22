@@ -113,19 +113,19 @@ public class Player : MonoBehaviour
             if (hit.transform.tag == "Chest") 
             {
                 LootableChest LC = hit.transform.GetComponent<LootableChest>();
-                if (!LC.ChestFilled) 
+                if (!LC.ChestFilled && !LC.isSearching) 
                 {
-                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Open Chest (Untouched)");
+                    HUD.InteractOn("Press <b><color=yellow>" + Rebind.GetEntry("Interact") + "</color></b> To Open Chest (Untouched)");
                 } else if (LC.ChestFilled) 
                 {
-                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Open Chest");
+                    HUD.InteractOn("Press <b><color=yellow>" + Rebind.GetEntry("Interact") + "</color></b> To Open Chest");
+                } else if (!LC.ChestFilled && LC.isSearching) 
+                {
+                    HUDManager.instance.InteractOn("Searching...");
                 }
                 if (Rebind.GetInputDown("Interact") && !LC.ChestFilled) 
                 {
-                    
-                    LC.FillChest();
-                    HUD.openInventory();
-                    HUD.OpenChestInventory();
+                    LC.StartCoroutine(LC.SearchChest());
                     ML.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
@@ -133,6 +133,7 @@ public class Player : MonoBehaviour
                 } else if (Rebind.GetInputDown("Interact") && LC.ChestFilled) 
                 {
                     LC.DisplayChest();
+                    LC.ChestOpened = true;
                     HUD.openInventory();
                     HUD.OpenChestInventory();
                     ML.enabled = false;
@@ -162,10 +163,10 @@ public class Player : MonoBehaviour
                     ItemInWorld IW = hit.transform.GetComponent<ItemInWorld>();
                     if (IW.amount > 1) 
                     {
-                        HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName + " x" + IW.amount);
+                        HUD.InteractOn("Press <b><color=yellow>" + Rebind.GetEntry("Interact") + "</color></b> To Pick Up " + IW.item.itemName + " <b><color=yellow>x" + IW.amount + "</color></b>");
                     } else 
                     {
-                        HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName);
+                        HUD.InteractOn("Press <b><color=yellow>" + Rebind.GetEntry("Interact") + "</color></b> To Pick Up " + IW.item.itemName + " <b><color=yellow>");
                     }
                     
                     if (Rebind.GetInputDown("Interact"))

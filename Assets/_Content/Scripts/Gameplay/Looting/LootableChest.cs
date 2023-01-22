@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ChestType { Medical, Food, Material, Weapon }
 public class LootableChest : MonoBehaviour
 {
+    [InspectorName("Type Of Chest")]
+    public ChestType TypeOfChest;
+
 
     public List<ChestItems> ItemsInChest = new List<ChestItems>();
     [HideInInspector]
     public List<IR_InventorySlot> ChestInventorySlots = new List<IR_InventorySlot>();
 
     public bool ChestFilled = false;
+    public bool ChestOpened = false;
+    public bool isSearching = false;
+    public float secondsToSearch;
 
     [Header("UI Elements")]
     public GameObject container;
@@ -22,11 +29,50 @@ public class LootableChest : MonoBehaviour
         
     }
 
+    public void Update() 
+    {
+        if (HUDManager.instance.ChestOpen) 
+        {
+
+        } else if (!HUDManager.instance.ChestOpen) 
+        {
+            ClearDisplay();
+        }
+    }   
+
+    public void ClearDisplay() 
+    {
+        for (int i = 0; i < ChestInventorySlots.Count; i++) 
+        {
+            if (ChestInventorySlots[i].item != null) 
+            {
+                if (ChestInventorySlots[i].item.isStackable) 
+            {
+                ChestInventorySlots[i].itemAmountText.gameObject.SetActive(false);
+            }
+
+                ChestInventorySlots[i].item = null;
+                ChestInventorySlots[i].amount = 0;
+                ChestInventorySlots[i].itemIcon.sprite = null;
+                ChestInventorySlots[i].itemIcon.gameObject.SetActive(false);
+                ChestInventorySlots[i].LC = null;
+            } else {
+
+            }
+        }
+    }
+
     public void DisplayChest() 
     {
         for (int i = 0; i < ItemsInChest.Count; i++) 
         {
+            ChestInventorySlots[i].LC = this;
+
             ChestInventorySlots[i].item = ItemsInChest[i].item;
+            if (ChestInventorySlots[i].LC.ItemsInChest[i].item == null) 
+            {
+                continue;
+            }
             ChestInventorySlots[i].amount =  ItemsInChest[i].itemAmount;
 
             ChestInventorySlots[i].itemIcon.sprite = ItemsInChest[i].icon;
@@ -53,20 +99,19 @@ public class LootableChest : MonoBehaviour
             ItemsInChest[i].icon = AllLootableItems.instance.items[random].itemIcon;
 
             DisplayChest();
-            /*ChestInventorySlots[i].item = ItemsInChest[i].item;
-            ChestInventorySlots[i].amount =  ItemsInChest[i].itemAmount;
-
-            ChestInventorySlots[i].itemIcon.sprite = ItemsInChest[i].icon;
-            ChestInventorySlots[i].itemIcon.gameObject.SetActive(true);
-
-            if (ChestInventorySlots[i].item.isStackable) 
-            {
-                ChestInventorySlots[i].itemAmountText.gameObject.SetActive(true);
-                ChestInventorySlots[i].itemAmountText.text = ChestInventorySlots[i].amount.ToString();
-            }*/
-
             ChestFilled = true;
         }
+    }
+
+    public IEnumerator SearchChest() 
+    {
+        isSearching = true;
+        yield return new WaitForSeconds(secondsToSearch);
+        FillChest();
+
+        HUDManager.instance.openInventory();
+        HUDManager.instance.OpenChestInventory();
+        isSearching = false;
     }
 
     public void getChestSlots() 

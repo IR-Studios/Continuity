@@ -232,13 +232,26 @@ public class IR_Inventory : MonoBehaviour
 
     public void AddItemFromChest(IR_InventorySlot slot) 
     {
-        AddItem(slot.item, (int)slot.weaponHealth, slot.amount);
-        slot.item = null;
-        slot.weaponHealth = 0;
-        slot.amount = 0;
+        if (slot.item != null) 
+        {
+             AddItem(slot.item, (int)slot.weaponHealth, slot.amount);
 
-        slot.itemIcon.gameObject.SetActive(false);
-        slot.itemAmountText.gameObject.SetActive(false);
+            slot.LC.ItemsInChest[slot.slotIndex].item = null;
+            slot.LC.ItemsInChest[slot.slotIndex].itemAmount = 0;
+            slot.LC.ItemsInChest[slot.slotIndex].icon = null;
+
+            slot.item = null;
+            slot.weaponHealth = 0;
+            slot.amount = 0;
+
+            slot.itemIcon.gameObject.SetActive(false);
+            slot.itemAmountText.gameObject.SetActive(false);
+        } else 
+        {
+            //do nothing
+        }
+        
+       
 
     }
 

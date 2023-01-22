@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2b1e3e6bd3d664ab66caec04c3582d, type: 3}
   m_Name: Test Item Weapon
   m_EditorClassIdentifier: 
+  item: 3
   itemName: Baseball Bat
   itemIcon: {fileID: 21300000, guid: 47c489ee93e4fb343a454db0902799a5, type: 3}
   itemDescription: 
   stackableLimit: 0
+  itemHealth: 0
   isStackable: 0
-  isWeapon: 1
   worldObject: {fileID: 24484842686198822, guid: 63c7158923770194ab566343a9856d46,
     type: 3}
   weapon: {fileID: 11400000}
+  isWeapon: 1
   weaponDMG: 0
   weaponHealth: 0
   WeaponPrefab: {fileID: 7132166328131866373, guid: abbfc87d4fa1c7b4d921dfffac6dfc43,

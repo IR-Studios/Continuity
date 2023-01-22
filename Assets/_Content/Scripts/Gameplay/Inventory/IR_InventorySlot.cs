@@ -24,6 +24,9 @@ public class IR_InventorySlot : MonoBehaviour
     public Image itemIcon;
     public TextMeshProUGUI itemAmountText;
 
+    [Header("Chest Information")]
+    public LootableChest LC;
+
     public void Start() 
     {
         
@@ -38,6 +41,9 @@ public class IR_InventorySlot : MonoBehaviour
         } else {
             isEmpty = false;
         }
+
+
+      
     }
 
 }

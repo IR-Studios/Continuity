@@ -12,15 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2b1e3e6bd3d664ab66caec04c3582d, type: 3}
   m_Name: Test Item Weapon 2
   m_EditorClassIdentifier: 
+  item: 3
   itemName: Unmodeled Axe
   itemIcon: {fileID: 21300000, guid: 70a0eb7828fa11b4eb5f64d5f0d2dc8a, type: 3}
   itemDescription: 
   stackableLimit: 0
+  itemHealth: 0
   isStackable: 0
-  isWeapon: 1
   worldObject: {fileID: 24484842686198822, guid: 63c7158923770194ab566343a9856d46,
     type: 3}
   weapon: {fileID: 11400000}
+  isWeapon: 1
   weaponDMG: 10
   weaponHealth: 100
   WeaponPrefab: {fileID: 1918769751163061203, guid: 9398e3bb37d916d4d9c2ba070a154786,

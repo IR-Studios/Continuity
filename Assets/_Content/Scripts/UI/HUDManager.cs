@@ -27,6 +27,7 @@ public class HUDManager : MonoBehaviour
 
     [HideInInspector]
     public bool InvOpen = false;
+    public bool ChestOpen = false;
 
     private void Awake()
     {
@@ -90,11 +91,13 @@ public class HUDManager : MonoBehaviour
 
     public void OpenChestInventory() 
     {
+        ChestOpen = true;
         ChestInventoryObj.SetActive(true);
     }
 
     public void closeChestInventory() 
     {
+        ChestOpen = false;
         ChestInventoryObj.SetActive(false);
     }
 }
