@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public enum typeOfItem { Medical, Food, Material, Weapon }
 public class IR_Item : ScriptableObject
 {
     public typeOfItem item;
 
+    public string shortName;
     public string itemName;
     public Sprite itemIcon;
     [TextArea]

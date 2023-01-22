@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public enum type { Health, Food, Drink, Potion }
 [CreateAssetMenu (fileName = "new Consumable Item", menuName = "Items/Consumable")]
 public class Consumable : IR_Item

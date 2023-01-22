@@ -597,6 +597,8 @@ GameObject:
   m_Component:
   - component: {fileID: 265295917}
   - component: {fileID: 265295918}
+  - component: {fileID: 265295919}
+  - component: {fileID: 265295920}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -637,6 +639,46 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57e4648c1c42c1d45ae99e347dd5a1ba, type: 2}
   - {fileID: 11400000, guid: 0edcda413532eaa4eaa52d419bcfa7f9, type: 2}
   - {fileID: 11400000, guid: 206ddf4ea839b1d4e9ae62b299adc999, type: 2}
+  allMedicalItems: []
+--- !u!114 &265295919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265295915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ff8f7d0ec38f945911d03303db4e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testItem:
+    shortName: TI
+    itemName: Test Item
+    itemDescription: Blah Blah Blah
+    stackableLimit: 10
+    itemHealth: 100
+    isStackable: 1
+--- !u!114 &265295920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265295915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e015422d96d5fc34aadc4d7168bf9663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shortName: TI
+  itemName: Test Item
+  itemIcon: {fileID: 0}
+  itemDescription: Blah Blah Blah
+  stackableLimit: 10
+  itemHealth: 100
+  isStackable: 1
+  worldObject: {fileID: 0}
 --- !u!1 &309724596 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 297497992, guid: f063dc8bd2a12314582e69b77ce7a8ef,
