@@ -6,6 +6,8 @@ using TMPro;
 
 public class HUDManager : MonoBehaviour
 {
+    public static HUDManager instance;
+
     public TextMeshProUGUI InteractText;
 
     [Header("Player Stats")]
@@ -19,13 +21,17 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI ObjText;
     public GameObject ObjNotif;
 
-    [Header("Inventory")]
+    [Header("Inventory/Chest Inventory")]
     public GameObject InventoryObj;
+    public GameObject ChestInventoryObj;
+
     [HideInInspector]
     public bool InvOpen = false;
 
     private void Awake()
     {
+        instance = this;
+
         //Finding all the HUD objects
         //Player Stats
         _Health = GameObject.Find("Health").GetComponent<Slider>();
@@ -39,6 +45,7 @@ public class HUDManager : MonoBehaviour
         InteractText = GameObject.Find("InteractText").GetComponent<TextMeshProUGUI>();
         InteractOff();
         closeInventory();
+        closeChestInventory();
     }
 
     public void UpdateStamina(float maxStamina, float stamina) 
@@ -79,5 +86,15 @@ public class HUDManager : MonoBehaviour
     {
         InvOpen = false;
         InventoryObj.SetActive(false);
+    }
+
+    public void OpenChestInventory() 
+    {
+        ChestInventoryObj.SetActive(true);
+    }
+
+    public void closeChestInventory() 
+    {
+        ChestInventoryObj.SetActive(false);
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ItemInWorld : MonoBehaviour
 {
    public IR_Item item;
+   public int amount = 1;
    public GameObject WorldObj;
    public string PromptMessage; 
 

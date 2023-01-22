@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
         } else if (Rebind.GetInputDown("Inventory") && HUD.InvOpen) 
         {
             HUD.closeInventory();
+            HUD.closeChestInventory();
             ML.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -109,6 +110,38 @@ public class Player : MonoBehaviour
         {
             Debug.DrawRay(Cam.transform.position, Cam.transform.forward * hit.distance, Color.yellow);
 
+            if (hit.transform.tag == "Chest") 
+            {
+                LootableChest LC = hit.transform.GetComponent<LootableChest>();
+                if (!LC.ChestFilled) 
+                {
+                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Open Chest (Untouched)");
+                } else if (LC.ChestFilled) 
+                {
+                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Open Chest");
+                }
+                if (Rebind.GetInputDown("Interact") && !LC.ChestFilled) 
+                {
+                    
+                    LC.FillChest();
+                    HUD.openInventory();
+                    HUD.OpenChestInventory();
+                    ML.enabled = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    movement.rb.constraints = RigidbodyConstraints.FreezeAll;
+                } else if (Rebind.GetInputDown("Interact") && LC.ChestFilled) 
+                {
+                    LC.DisplayChest();
+                    HUD.openInventory();
+                    HUD.OpenChestInventory();
+                    ML.enabled = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    movement.rb.constraints = RigidbodyConstraints.FreezeAll;
+                }
+            }
+
             //Find what it's hitting.
             if (hit.transform.tag == "item")
             {
@@ -127,10 +160,17 @@ public class Player : MonoBehaviour
                 } else if (hit.transform.GetComponent<ItemInWorld>() != null)  
                 {
                     ItemInWorld IW = hit.transform.GetComponent<ItemInWorld>();
-                    HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName);
+                    if (IW.amount > 1) 
+                    {
+                        HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName + " x" + IW.amount);
+                    } else 
+                    {
+                        HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Pick Up " + IW.item.itemName);
+                    }
+                    
                     if (Rebind.GetInputDown("Interact"))
                         {
-                            IR_Inventory.instance.AddItem(IW.item, IW.WorldWeaponHealth);
+                            IR_Inventory.instance.AddItem(IW.item, IW.WorldWeaponHealth, IW.amount);
                             Destroy(hit.transform.gameObject);
                         }
                 } else

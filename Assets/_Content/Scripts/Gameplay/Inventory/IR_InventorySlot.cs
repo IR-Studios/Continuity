@@ -6,6 +6,8 @@ using TMPro;
 
 public class IR_InventorySlot : MonoBehaviour
 {
+    public int slotIndex;
+    
     [Tooltip("If item is an item, store information here.")]
     public IR_Item item;
 
