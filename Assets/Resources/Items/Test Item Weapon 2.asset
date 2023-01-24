@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2b1e3e6bd3d664ab66caec04c3582d, type: 3}
   m_Name: Test Item Weapon 2
   m_EditorClassIdentifier: 
-  item: 3
+  itemID: 4
   itemName: Unmodeled Axe
-  itemIcon: {fileID: 21300000, guid: 70a0eb7828fa11b4eb5f64d5f0d2dc8a, type: 3}
   itemDescription: 
+  item: 3
+  itemIcon: {fileID: 21300000, guid: 70a0eb7828fa11b4eb5f64d5f0d2dc8a, type: 3}
   stackableLimit: 0
   itemHealth: 0
   isStackable: 0

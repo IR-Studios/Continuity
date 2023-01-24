@@ -25,6 +25,11 @@ public class HUDManager : MonoBehaviour
     public GameObject InventoryObj;
     public GameObject ChestInventoryObj;
 
+    public GameObject itemInfoObj;
+    public TextMeshProUGUI itemInfoName;
+    public Image itemInfoIcon;
+    public TextMeshProUGUI itemInfoDescription;
+
     [HideInInspector]
     public bool InvOpen = false;
     public bool ChestOpen = false;
@@ -47,6 +52,7 @@ public class HUDManager : MonoBehaviour
         InteractOff();
         closeInventory();
         closeChestInventory();
+        ItemInfo(false);
     }
 
     public void UpdateStamina(float maxStamina, float stamina) 
@@ -100,4 +106,17 @@ public class HUDManager : MonoBehaviour
         ChestOpen = false;
         ChestInventoryObj.SetActive(false);
     }
+
+    public void ItemInfo(bool active) 
+    {
+        if (active) 
+        {
+            itemInfoObj.SetActive(true);
+        } else if (!active) 
+        {
+            itemInfoObj.SetActive(false);
+        }
+        
+    }
+    
 }

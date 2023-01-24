@@ -37,6 +37,9 @@ public class Tree : MonoBehaviour
         t_MainBody.SetActive(false); //Disables the original tree model.
         GameObject t_Spawned = Instantiate(t_RigidbodyPrefab, t_SpawnPosition, t_Rotation);
         t_Spawned.transform.parent = this.transform;
+        Rigidbody rb = t_Spawned.GetComponent<Rigidbody>();
+        rb.AddForce(Vector3.forward * 50, ForceMode.Force);
+
         Destroy(t_MainBody);
     }
 

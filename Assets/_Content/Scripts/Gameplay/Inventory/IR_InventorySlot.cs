@@ -22,15 +22,25 @@ public class IR_InventorySlot : MonoBehaviour
 
     [Header("Slot UI Elements")]
     public Image itemIcon;
+    public Image slotBorder;
     public TextMeshProUGUI itemAmountText;
+    Vector2 IconSize;
+    Vector2 BorderSize;
 
     [Header("Chest Information")]
     public LootableChest LC;
 
+    void Awake() 
+    {
+        slotBorder = this.gameObject.GetComponent<Image>();
+    }
+
     public void Start() 
     {
-        
-        
+
+
+        IconSize = itemIcon.rectTransform.sizeDelta;
+        BorderSize = slotBorder.rectTransform.sizeDelta;
     }
 
     public void Update() 
@@ -41,9 +51,39 @@ public class IR_InventorySlot : MonoBehaviour
         } else {
             isEmpty = false;
         }
+    }
 
+    public void SlotHoverEnter(IR_InventorySlot slot) 
+    {
+        slot = this;
+        slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x + 10 , BorderSize.y + 10);
+        slot.itemIcon.rectTransform.sizeDelta = new Vector2(IconSize.x + 10 ,IconSize.y + 10);
+        if (slot.item != null) 
+        {
+            DisplayInformation(true);
+        }
+       
+    }
+    public void SlotHoverExit(IR_InventorySlot slot) 
+    {
+        slot = this;
+        slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x, BorderSize.y); 
+        slot.itemIcon.rectTransform.sizeDelta = new Vector2(IconSize.x,IconSize.y);
+        DisplayInformation(false);
+    }
 
-      
+    public void DisplayInformation(bool isDisplaying) 
+    {
+        if (isDisplaying) 
+        {
+            HUDManager.instance.ItemInfo(true);
+            HUDManager.instance.itemInfoName.text = item.itemName;
+            HUDManager.instance.itemInfoIcon.sprite = item.itemIcon;
+            HUDManager.instance.itemInfoDescription.text = item.itemDescription;
+        } else if (!isDisplaying) 
+        {
+            HUDManager.instance.ItemInfo(false);
+        }
     }
 
 }

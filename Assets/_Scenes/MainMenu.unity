@@ -1389,6 +1389,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3388373034678621508, guid: f3b8cd216bc6bfe49962d0240ca8549a,
         type: 3}
+      propertyPath: m_text
+      value: 'CONTINUITY PRE-ALPHA v0.0.1.3
+
+        INTERNAL USE ONLY'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388373034678621508, guid: f3b8cd216bc6bfe49962d0240ca8549a,
+        type: 3}
       propertyPath: m_fontColor.a
       value: 0.50980395
       objectReference: {fileID: 0}

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3b04e2065788642825d4028829da4a, type: 3}
   m_Name: Engine
   m_EditorClassIdentifier: 
-  item: 2
+  itemID: 2
   itemName: Engine
+  itemDescription: A car engine?! In your backpack?! How's your back?
+  item: 2
   itemIcon: {fileID: 21300000, guid: 926f562322d0623409d7da8dbf81ac77, type: 3}
-  itemDescription: 
   stackableLimit: 0
   itemHealth: 0
   isStackable: 0

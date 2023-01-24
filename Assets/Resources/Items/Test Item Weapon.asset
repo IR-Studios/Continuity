@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b2b1e3e6bd3d664ab66caec04c3582d, type: 3}
   m_Name: Test Item Weapon
   m_EditorClassIdentifier: 
-  item: 3
+  itemID: 5
   itemName: Baseball Bat
-  itemIcon: {fileID: 21300000, guid: 47c489ee93e4fb343a454db0902799a5, type: 3}
   itemDescription: 
+  item: 3
+  itemIcon: {fileID: 21300000, guid: 47c489ee93e4fb343a454db0902799a5, type: 3}
   stackableLimit: 0
   itemHealth: 0
   isStackable: 0

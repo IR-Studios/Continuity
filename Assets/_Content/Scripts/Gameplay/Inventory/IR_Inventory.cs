@@ -126,6 +126,11 @@ public class IR_Inventory : MonoBehaviour
 
     public void ClickItem(IR_InventorySlot slot) 
     {
+        if (slot.item == null) 
+        {
+            return;
+        }
+
         if (slot.item.isWeapon) 
         {
             int count = 0;

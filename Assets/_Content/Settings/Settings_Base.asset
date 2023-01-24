@@ -25,8 +25,8 @@ MonoBehaviour:
   MaxHealth: 100
   HealthRechargeRate: 4
   MaxStamina: 100
-  StaminaFallRate: 3
-  StaminaRegenRate: 2
+  StaminaFallRate: 15
+  StaminaRegenRate: 3
   maxHunger: 100
   hungerFallRate: 0.06
   maxThirst: 100

@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class Clickable : MonoBehaviour, IPointerClickHandler
+public class Clickable : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public UnityEvent onLeft;
     public UnityEvent onRight;
     public UnityEvent onMiddle;
     public UnityEvent onRightShift;
+    public UnityEvent onMouseHover;
+    public UnityEvent onMouseHoverExit;
  
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -31,4 +33,14 @@ public class Clickable : MonoBehaviour, IPointerClickHandler
             Debug.Log("Right Click Shift");
         }
     }
-}
+
+    public void OnPointerEnter(PointerEventData eventData) 
+    {
+        onMouseHover.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData) 
+    {
+        onMouseHoverExit.Invoke();
+    }
+} 

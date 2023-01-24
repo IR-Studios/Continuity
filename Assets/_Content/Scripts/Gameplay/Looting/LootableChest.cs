@@ -88,19 +88,63 @@ public class LootableChest : MonoBehaviour
 
     public void FillChest() 
     {
-        int randomNum = (int)Random.Range(1, 8);
+        if (TypeOfChest == ChestType.Medical) 
+        {
+            MedicalChest();
+        } else if (TypeOfChest == ChestType.Food)
+        {
+            ConsumableChest();
+        } else 
+        {
+                  int randomNum = (int)Random.Range(1, 8);
         for (int i = 0; i < randomNum; i++) 
         {
-            int random = Random.Range(0, AllLootableItems.instance.items.Count);
+            int random = Random.Range(0, AllLootableItems.instance.Worlditems.Count);
 
             ItemsInChest.Add(new ChestItems());
-            ItemsInChest[i].item = AllLootableItems.instance.items[random];
-            ItemsInChest[i].itemAmount = Random.Range(1, AllLootableItems.instance.items[random].stackableLimit);
-            ItemsInChest[i].icon = AllLootableItems.instance.items[random].itemIcon;
+            ItemsInChest[i].item = AllLootableItems.instance.Worlditems[random];
+            ItemsInChest[i].itemAmount = Random.Range(1, AllLootableItems.instance.Worlditems[random].stackableLimit);
+            ItemsInChest[i].icon = AllLootableItems.instance.Worlditems[random].itemIcon;
 
             DisplayChest();
             ChestFilled = true;
         }
+        }
+    }
+
+    public void ConsumableChest() 
+    {
+        int randomNum = (int)Random.Range(1, 8);
+         for (int i = 0; i < randomNum; i++) 
+        {
+            int random = Random.Range(0, AllLootableItems.instance.ConsumableItems.Count);
+
+            ItemsInChest.Add(new ChestItems());
+            ItemsInChest[i].item = AllLootableItems.instance.ConsumableItems[random];
+            ItemsInChest[i].itemAmount = Random.Range(1, AllLootableItems.instance.ConsumableItems[random].stackableLimit);
+            ItemsInChest[i].icon = AllLootableItems.instance.ConsumableItems[random].itemIcon;
+
+            DisplayChest();
+            ChestFilled = true;
+        }
+    }
+
+    public void MedicalChest() 
+    {
+        int randomNum = (int)Random.Range(1, 8);
+         for (int i = 0; i < randomNum; i++) 
+        {
+            int random = Random.Range(0, AllLootableItems.instance.MedicalItems.Count);
+
+            ItemsInChest.Add(new ChestItems());
+            ItemsInChest[i].item = AllLootableItems.instance.MedicalItems[random];
+            ItemsInChest[i].itemAmount = Random.Range(1, AllLootableItems.instance.MedicalItems[random].stackableLimit);
+            ItemsInChest[i].icon = AllLootableItems.instance.MedicalItems[random].itemIcon;
+
+            DisplayChest();
+            ChestFilled = true;
+        }
+
     }
 
     public IEnumerator SearchChest() 

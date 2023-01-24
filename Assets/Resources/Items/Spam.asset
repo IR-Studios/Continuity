@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 576e1f62d2c40a844a69646dbb738fed, type: 3}
-  m_Name: Bandage
+  m_Name: Spam
   m_EditorClassIdentifier: 
-  itemID: 1
-  itemName: Bandage
-  itemDescription: A simple bandage wrap that will heal a small amount of health
-  item: 0
-  itemIcon: {fileID: 21300000, guid: 139c4b53edcf01c4780b2d9ca55b6337, type: 3}
-  stackableLimit: 10
+  itemID: 3
+  itemName: Spam
+  itemDescription: 'A can of Spam. It''s gross. '
+  item: 1
+  itemIcon: {fileID: 21300000, guid: e2adcad0bd2a6d544b00f646962ed22d, type: 3}
+  stackableLimit: 3
   itemHealth: 0
   isStackable: 1
-  worldObject: {fileID: 5414277353049878746, guid: 41b1947975fe33b4db72dd5c5ca38a6b,
+  worldObject: {fileID: 3470884969123317050, guid: 22cc89f096f7f79418bce8b201b73b89,
     type: 3}
   weapon: {fileID: 0}
   isWeapon: 0
-  type: 0
-  heal: 30
-  hunger: 0
+  type: 1
+  heal: 0
+  hunger: 25
   thirst: 0

@@ -60,6 +60,11 @@ public class WeaponManager : MonoBehaviour
 
     public void Equip(int WeaponNum) 
     {
+        if (CurrentWeapons[WeaponNum] == null) 
+        {
+            return;
+        }
+
         if (activeWeaponObj != null) 
         {
             Destroy(activeWeaponObj); //Destroys the current weapon from the screen. 
@@ -102,7 +107,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
     }
-
+ 
      public void UpdateSlotInfo() 
     {
         foreach (IR_InventorySlot slot in WeaponSlots) 
@@ -124,6 +129,8 @@ public class WeaponManager : MonoBehaviour
             }
         }
     }
+
+    
 
     #endregion
     

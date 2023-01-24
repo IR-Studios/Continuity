@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576e1f62d2c40a844a69646dbb738fed, type: 3}
   m_Name: Water Bottle
   m_EditorClassIdentifier: 
-  item: 1
+  itemID: 6
   itemName: Water Bottle
+  itemDescription: An old water bottle. It may or may not make you sick.
+  item: 1
   itemIcon: {fileID: 21300000, guid: ad08762eacc27cc4caeb29c4b6bbc49e, type: 3}
-  itemDescription: 
   stackableLimit: 10
   itemHealth: 0
   isStackable: 1

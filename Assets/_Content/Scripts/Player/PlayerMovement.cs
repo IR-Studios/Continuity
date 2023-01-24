@@ -213,12 +213,19 @@ public class PlayerMovement : MonoBehaviour
         if (Sprinting)
         {
             player._stamina -= Settings.StaminaFallRate * Time.deltaTime;
+            HUDManager.instance._Stamina.gameObject.SetActive(true);
         } 
             else if (!Sprinting)
         {
+           
                 if (player._stamina < Settings.MaxStamina)
                 {
                     player._stamina += Settings.StaminaRegenRate * Time.deltaTime;
+                }
+
+                if (player._stamina >= Settings.MaxStamina) 
+                {
+                     HUDManager.instance._Stamina.gameObject.SetActive(false);
                 }
         }
         player.HUD.UpdateStamina(Settings.MaxStamina, player._stamina);

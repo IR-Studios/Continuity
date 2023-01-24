@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1376a2e617c1fb544961d5a7a98f0b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 0
   item: {fileID: 0}
   isEmpty: 0
   isStackable: 0
@@ -144,7 +145,9 @@ MonoBehaviour:
   weaponHealth: 0
   weaponDMG: 0
   itemIcon: {fileID: 0}
+  slotBorder: {fileID: 3952939010407615145}
   itemAmountText: {fileID: 0}
+  LC: {fileID: 0}
 --- !u!1 &3952939010462452391
 GameObject:
   m_ObjectHideFlags: 0
