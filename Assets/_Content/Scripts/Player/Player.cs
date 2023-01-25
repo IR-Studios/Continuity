@@ -186,12 +186,14 @@ public class Player : MonoBehaviour
             } 
             if (hit.transform.tag == "tree") 
             {
-                Tree t = hit.transform.GetComponentInParent<Tree>();
-                HUD.InteractOn("Press " + Rebind.GetEntry("Interact") + " To Destroy Tree");
-                if (Rebind.GetInputDown("Interact"))
+                Tree tree = hit.transform.GetComponentInParent<Tree>();
+                if (Rebind.GetInputDown("Attack")) 
                 {
-                    t.SetTreeHealth(0.0f);
+                    tree.DamageTree(10);
+                    int randomNum = Random.Range(0, 25);
+                    IR_Inventory.instance.AddItem(tree.ItemToGive, tree.ItemToGive.itemHealth, randomNum);
                 }
+                
             }
 
            

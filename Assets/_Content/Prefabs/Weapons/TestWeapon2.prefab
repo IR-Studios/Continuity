@@ -210,4 +210,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: 
-  weaponDMG: 0
+  WeaponDMG: 133
+  weaponHealth: 0

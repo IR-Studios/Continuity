@@ -11,3 +11,5 @@ Inventory=Tab
 Weapon1=Alpha1
 Weapon2=Alpha2
 Swap=Alpha3
+Attack=Mouse0
+ADS=Mouse1

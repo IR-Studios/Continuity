@@ -5,8 +5,8 @@ using Continuity.Keybinds;
 
 public class MeleeWeapon : MonoBehaviour
 {
-    public string weaponName; 
-    public float weaponDMG; 
+    public string weaponName;
+    public int WeaponDMG;
     public int weaponHealth;
 
 

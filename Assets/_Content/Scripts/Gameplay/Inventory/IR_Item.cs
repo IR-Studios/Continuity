@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public enum typeOfItem { Medical, Food, Material, Weapon }
 public class IR_Item : ScriptableObject
 {

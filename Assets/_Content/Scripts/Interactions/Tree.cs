@@ -9,6 +9,7 @@ public class Tree : MonoBehaviour
 
     public GameObject t_MainBody;
     public GameObject t_RigidbodyPrefab;
+    public IR_Item ItemToGive;
 
     Vector3 t_Position;
     Vector3 t_SpawnPosition;
@@ -34,18 +35,27 @@ public class Tree : MonoBehaviour
 
     void treeDeath() 
     {
-        t_MainBody.SetActive(false); //Disables the original tree model.
-        GameObject t_Spawned = Instantiate(t_RigidbodyPrefab, t_SpawnPosition, t_Rotation);
-        t_Spawned.transform.parent = this.transform;
-        Rigidbody rb = t_Spawned.GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward * 50, ForceMode.Force);
+        if (t_MainBody != null) 
+        {
+            t_MainBody.SetActive(false); //Disables the original tree model.
+            GameObject t_Spawned = Instantiate(t_RigidbodyPrefab, t_SpawnPosition, t_Rotation);
+            t_Spawned.transform.parent = this.transform;
+            Rigidbody rb = t_Spawned.GetComponent<Rigidbody>();
+            rb.AddForce(Vector3.forward * 50, ForceMode.Force);
 
-        Destroy(t_MainBody);
+            Destroy(t_MainBody);
+        }
     }
 
     public float SetTreeHealth(float t) 
     {
         t_Health = t;
+        return t_Health;
+    }
+
+    public float DamageTree(float t) 
+    {
+        t_Health -= t;
         return t_Health;
     }
 }
