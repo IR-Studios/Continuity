@@ -12,6 +12,11 @@ public class IR_Inventory : MonoBehaviour
     public int maxInventorySlots;
     [SerializeField]
     private GameObject backpackObj;
+
+    //Private lists
+    public List<IR_InventorySlot> Arrows = new List<IR_InventorySlot>();
+
+
     public void Awake () 
     {
         instance = this;
@@ -28,6 +33,14 @@ public class IR_Inventory : MonoBehaviour
     public void Update() 
     {
         UpdateSlotInfo();
+
+        foreach (IR_InventorySlot slot in Arrows) 
+        {
+            if (slot.item == null) 
+            {
+                Arrows.Remove(slot);
+            }
+        }
     }
 
     bool CheckForItem(IR_Item item) 
@@ -101,6 +114,10 @@ public class IR_Inventory : MonoBehaviour
                     {
                         InventorySlots[i].item = item;  
                         InventorySlots[i].amount += itemAmount;
+                        if (item.isArrowAmmo) 
+                        {
+                            Arrows.Add(InventorySlots[i]);
+                        }
                         Debug.Log(item.name + " has been acquired. Amount: " + InventorySlots[i].amount);
                         break;
                     }
@@ -115,6 +132,10 @@ public class IR_Inventory : MonoBehaviour
                     {
                         InventorySlots[i].item = item;  
                         InventorySlots[i].amount += itemAmount;
+                        if (item.isArrowAmmo) 
+                        {
+                            Arrows.Add(InventorySlots[i]);
+                        }
                         Debug.Log(item.name + " has been acquired. Amount: " + InventorySlots[i].amount);
                         count = 1;
                         break;

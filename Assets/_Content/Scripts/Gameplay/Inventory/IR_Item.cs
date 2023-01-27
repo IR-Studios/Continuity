@@ -23,6 +23,9 @@ public class IR_Item : ScriptableObject
     [Header("Weapon Information")]
     public Item_Weapon weapon;
     public bool isWeapon;
+    public bool isArrowAmmo;
+    public bool isBoltAmmo;
+    public bool isShotgunAmmo;
     
 
     public virtual void Use() 

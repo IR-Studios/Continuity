@@ -20,6 +20,10 @@ MonoBehaviour:
   stackableLimit: 150
   itemHealth: 0
   isStackable: 1
-  worldObject: {fileID: 0}
+  worldObject: {fileID: 5353568408932696765, guid: f9ba40a5ce237fb459027db0c66e0d13,
+    type: 3}
   weapon: {fileID: 0}
   isWeapon: 0
+  isArrowAmmo: 1
+  isBoltAmmo: 0
+  isShotgunAmmo: 0

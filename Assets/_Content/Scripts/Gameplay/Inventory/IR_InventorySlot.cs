@@ -13,6 +13,7 @@ public class IR_InventorySlot : MonoBehaviour
 
     [Header("Slot Information")]
     public bool isEmpty; //Is this slot empty? yes or no.
+    public bool isAmmo;
     public bool isStackable; //Is this item stackable? yes or no.
     public int amount; //Amount of this item in the stack.
 
@@ -50,6 +51,11 @@ public class IR_InventorySlot : MonoBehaviour
             isEmpty = true;
         } else {
             isEmpty = false;
+        }
+
+        if (item != null && (item.isArrowAmmo || item.isBoltAmmo || item.isShotgunAmmo)) 
+        {
+            isAmmo = true;
         }
     }
 

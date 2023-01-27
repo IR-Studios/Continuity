@@ -5,6 +5,7 @@ using Continuity.Keybinds;
 
 public class BowAndArrow : MonoBehaviour
 {
+    [Header("Bow Stats")]
     [SerializeField]
     private int InitialDamage;
     [SerializeField]
@@ -13,9 +14,13 @@ public class BowAndArrow : MonoBehaviour
     private float ChargeUp;
     [SerializeField]
     private float ChargeUpRate;
-
-    public int ArrowAmmo;
-
+    [SerializeField]
+    private float maxCharge;
+    [Header("Ammo")]
+    public int ArrowAmmoReserve;
+    public int ArrowLoaded;
+    
+    [Header("Bow GameObjects")]
     public GameObject FakeArrow;
     public GameObject FakeArrowPrefab;
     public GameObject ArrowRigidbody;
@@ -24,38 +29,63 @@ public class BowAndArrow : MonoBehaviour
     private GameObject Camera;
     private Camera cam;
 
+    List<IR_InventorySlot> Arrows = new List<IR_InventorySlot>();
+
+    float fov;
+
     public void Start() 
     {
         Camera = GameObject.Find("Camera");
         cam = Camera.GetComponent<Camera>();
 
+        fov = cam.fieldOfView;
     }
-
-
     public void Update() 
     {
-        if (Rebind.GetInput("Attack")) 
+        HUDManager.instance.AmmoCount.text = ArrowLoaded + " | " + ArrowAmmoReserve;
+
+        GetInput();
+        CheckAmmo();
+    }
+
+    public void GetInput() 
+    {
+        if (Rebind.GetInput("Attack") && ArrowLoaded == 1) 
         {
-            ChargeShot();
-        }
-        if (Rebind.GetInputUp("Attack") && ArrowAmmo > 0) 
+            if (ChargeUp <= maxCharge) 
+            {
+                ChargeShot();
+            } 
+        } else if (Rebind.GetInputUp("Attack") && ArrowLoaded == 1) 
         {
             ShootArrow();
-            if (ArrowAmmo > 0) 
-            {
-                FakeArrow.SetActive(true);
-            }
-        } else if (Rebind.GetInputUp("Attack") && ArrowAmmo <= 0) {
-            ChargeUp = 0;
         }
 
-        if (Rebind.GetInputDown("ADS") ) 
+        if (Rebind.GetInputDown("Reload") && ArrowLoaded <= 0) 
         {
-            cam.fieldOfView -= 10;
-        } else if (Rebind.GetInputUp("ADS"))
-        {
-            cam.fieldOfView += 10;
+            ReloadArrow();
         }
+
+        if (Rebind.GetInput("ADS")) 
+        {   
+            if (cam.fieldOfView > fov - 20) 
+            {
+                cam.fieldOfView -= 20 * Time.deltaTime;
+            }
+        }
+        if (Rebind.GetInputUp("ADS"))
+        {
+            cam.fieldOfView = fov;
+            ChargeUp = 0;
+        }
+    }
+
+    public void ReloadArrow() 
+    {
+        ArrowLoaded = 1;
+        GetAmmoFromInventory();
+
+        FakeArrow.SetActive(true);
     }
     public void ShootArrow() 
     {
@@ -64,10 +94,9 @@ public class BowAndArrow : MonoBehaviour
         FakeArrow.SetActive(false);
         Rigidbody rb = SpawnedArrow.GetComponent<Rigidbody>();
         rb.AddForce(Camera.gameObject.transform.forward * ChargeUp, ForceMode.Force);
-        ArrowAmmo--;
+        ArrowLoaded--;
         ChargeUp = 0;
     }
-
     public void ChargeShot() 
     {
         ChargeUp += ChargeUpRate * Time.deltaTime;
@@ -75,6 +104,17 @@ public class BowAndArrow : MonoBehaviour
 
     public void CheckAmmo() 
     {
-       
+       if (ArrowAmmoReserve <= 0) 
+        {
+            ArrowAmmoReserve = 0;
+        }
+    }
+
+    public void GetAmmoFromInventory() 
+    {
+        foreach (IR_InventorySlot slot in IR_Inventory.instance.Arrows) 
+        {
+            ArrowAmmoReserve += slot.amount;
+        }
     }
 }

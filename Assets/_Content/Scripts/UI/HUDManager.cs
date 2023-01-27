@@ -30,6 +30,10 @@ public class HUDManager : MonoBehaviour
     public Image itemInfoIcon;
     public TextMeshProUGUI itemInfoDescription;
 
+    [Header("Weapons")]
+    public TextMeshProUGUI AmmoCount;
+    public GameObject AmmoObj;
+
     [HideInInspector]
     public bool InvOpen = false;
     public bool ChestOpen = false;
