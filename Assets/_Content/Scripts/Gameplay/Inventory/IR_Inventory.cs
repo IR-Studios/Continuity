@@ -260,7 +260,7 @@ public class IR_Inventory : MonoBehaviour
     {
         if (slot.item != null) 
         {
-             AddItem(slot.item, (int)slot.weaponHealth, slot.amount);
+            AddItem(slot.item, (int)slot.weaponHealth, slot.amount);
 
             slot.LC.ItemsInChest[slot.slotIndex].item = null;
             slot.LC.ItemsInChest[slot.slotIndex].itemAmount = 0;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Continuity.Keybinds;
+using Continuity.Inventory;
 
 public class BowAndArrow : MonoBehaviour
 {
@@ -29,7 +30,6 @@ public class BowAndArrow : MonoBehaviour
     private GameObject Camera;
     private Camera cam;
 
-    List<IR_InventorySlot> Arrows = new List<IR_InventorySlot>();
 
     float fov;
 
@@ -43,9 +43,8 @@ public class BowAndArrow : MonoBehaviour
     public void Update() 
     {
         HUDManager.instance.AmmoCount.text = ArrowLoaded + " | " + ArrowAmmoReserve;
-
+        ArrowAmmoReserve = IR_InventoryV2.instance.GetAmmo("arrow");
         GetInput();
-        CheckAmmo();
     }
 
     public void GetInput() 
@@ -83,7 +82,7 @@ public class BowAndArrow : MonoBehaviour
     public void ReloadArrow() 
     {
         ArrowLoaded = 1;
-        GetAmmoFromInventory();
+        IR_InventoryV2.instance.SubtractAmmoFromStack("arrow");
 
         FakeArrow.SetActive(true);
     }

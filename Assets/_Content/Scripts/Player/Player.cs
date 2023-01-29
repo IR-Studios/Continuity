@@ -4,6 +4,7 @@ using UnityEngine;
 using Continuity.Keybinds;
 using Continuity.UI;
 using Continuity.Movement;
+using Continuity.Inventory;
 
 public class Player : MonoBehaviour
 {
@@ -171,7 +172,8 @@ public class Player : MonoBehaviour
                     
                     if (Rebind.GetInputDown("Interact"))
                         {
-                            IR_Inventory.instance.AddItem(IW.item, IW.WorldWeaponHealth, IW.amount);
+                            //IR_Inventory.instance.AddItem(IW.item, IW.WorldWeaponHealth, IW.amount);
+                            IR_InventoryV2.instance.AddItem(IW.item, IW.amount, IW.WorldWeaponHealth);
                             Destroy(hit.transform.gameObject);
                         }
                 } else

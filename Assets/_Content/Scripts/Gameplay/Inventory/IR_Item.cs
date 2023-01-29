@@ -26,6 +26,11 @@ public class IR_Item : ScriptableObject
     public bool isArrowAmmo;
     public bool isBoltAmmo;
     public bool isShotgunAmmo;
+
+    [Header("Spawn Variables")]
+    public float RotX;
+    public float RotY;
+    public float RotZ;
     
 
     public virtual void Use() 

@@ -86,10 +86,11 @@ public class WeaponManager : MonoBehaviour
         GameObject Player = GameObject.Find("Player");
         //Debug.Log(Cam.transform.rotation.x);
         Vector3 spawnLocation = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        activeWeaponObj = Instantiate(activeWeapon.WeaponPrefab, spawnLocation, CamHolder.transform.rotation);
+        Vector3 spawnRotation = new Vector3(CamHolder.transform.rotation.x, activeWeapon.RotY, activeWeapon.RotZ);
+        activeWeaponObj = Instantiate(activeWeapon.WeaponPrefab, spawnLocation, Quaternion.LookRotation(CamHolder.transform.forward, CamHolder.transform.up));
         activeWeaponObj.transform.SetParent(this.transform);
 
-        activeWeaponObj.transform.rotation = CamHolder.transform.rotation;
+        //activeWeaponObj.transform.rotation = Quaternion.LookRotation(transform.forward, Vector3.up);
         
 
     }
