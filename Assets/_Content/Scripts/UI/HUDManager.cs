@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Continuity.Keybinds;
 
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager instance;
 
     public TextMeshProUGUI InteractText;
+
+    [Header("Canvas")]
+    public GameObject PauseCanvas;
 
     [Header("Player Stats")]
     public Slider _Health;
@@ -34,9 +38,15 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI AmmoCount;
     public GameObject AmmoObj;
 
+    [Header("Game Telemetry")]
+    public TextMeshProUGUI FpsText;
+
     [HideInInspector]
     public bool InvOpen = false;
     public bool ChestOpen = false;
+    public bool Paused = false;
+
+    private float deltaTime;
 
     private void Awake()
     {
@@ -57,6 +67,19 @@ public class HUDManager : MonoBehaviour
         closeInventory();
         closeChestInventory();
         ItemInfo(false);
+    }
+
+    public void Update() 
+    {
+        DisplayFPS();
+
+        if (Rebind.GetInputDown("Pause") && !Paused) 
+        {
+            PauseGame(true);
+        } else if (Rebind.GetInputDown("Pause") && Paused) 
+        {
+            PauseGame(false);
+        }
     }
 
     public void UpdateStamina(float maxStamina, float stamina) 
@@ -90,13 +113,21 @@ public class HUDManager : MonoBehaviour
 
     public void openInventory() 
     {
-        InvOpen = true;
-        InventoryObj.SetActive(true);
+        if (!Paused)
+        {
+            InvOpen = true;
+            InventoryObj.SetActive(true);
+        }
+        
     }
     public void closeInventory() 
     {
-        InvOpen = false;
-        InventoryObj.SetActive(false);
+        if (!Paused) 
+        {
+            InvOpen = false;
+            InventoryObj.SetActive(false);
+        }
+ 
     }
 
     public void OpenChestInventory() 
@@ -104,7 +135,6 @@ public class HUDManager : MonoBehaviour
         ChestOpen = true;
         ChestInventoryObj.SetActive(true);
     }
-
     public void closeChestInventory() 
     {
         ChestOpen = false;
@@ -123,4 +153,36 @@ public class HUDManager : MonoBehaviour
         
     }
     
+    public void DisplayFPS() 
+    {
+        deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
+         float fps = 1.0f / deltaTime;
+         FpsText.text = Mathf.Ceil(fps).ToString() + " FPS";
+    }
+
+    public void PauseGame(bool pause) 
+    {
+        MouseLook ML = GameObject.Find("CamHolder").GetComponent<MouseLook>();
+        Player P = transform.GetComponent<Player>();
+
+        if (pause) 
+        {
+            Paused = true;
+            PauseCanvas.gameObject.SetActive(true);
+            ML.enabled = false;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            P.movement.rb.constraints = RigidbodyConstraints.FreezeAll;
+        } else if (!pause) 
+        {
+            Paused = false;
+            PauseCanvas.gameObject.SetActive(false);
+            ML.enabled = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            P.movement.rb.constraints = RigidbodyConstraints.None;
+            P.movement.rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        }
+    
+    }
 }

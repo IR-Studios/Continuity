@@ -62,7 +62,7 @@ public class IR_InventorySlot : MonoBehaviour
     public void SlotHoverEnter(IR_InventorySlot slot) 
     {
         slot = this;
-        slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x + 10 , BorderSize.y + 10);
+        //slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x + 10 , BorderSize.y + 10);
         slot.itemIcon.rectTransform.sizeDelta = new Vector2(IconSize.x + 10 ,IconSize.y + 10);
         if (slot.item != null) 
         {
@@ -73,7 +73,7 @@ public class IR_InventorySlot : MonoBehaviour
     public void SlotHoverExit(IR_InventorySlot slot) 
     {
         slot = this;
-        slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x, BorderSize.y); 
+        //slot.slotBorder.rectTransform.sizeDelta = new Vector2(BorderSize.x, BorderSize.y); 
         slot.itemIcon.rectTransform.sizeDelta = new Vector2(IconSize.x,IconSize.y);
         DisplayInformation(false);
     }

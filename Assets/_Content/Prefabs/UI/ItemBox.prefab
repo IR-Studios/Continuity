@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3410660970916751219}
   - component: {fileID: 5858260587017123368}
   - component: {fileID: 8306147995477560567}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ItemAmountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,16 +60,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a435aebf24c079846a3318e93da4d403, type: 2}
+  m_sharedMaterial: {fileID: -5664972423446683047, guid: a435aebf24c079846a3318e93da4d403,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.4
+  m_fontSize: 17.6
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -199,15 +200,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f4c2f003c8e77e4790e561ebc58f2c7, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: a64c77e8b58ba6c4892d19efa803eb12, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -245,10 +246,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 3ec0688767871dd49b14bf1a3661f8ca,
+    m_HighlightedSprite: {fileID: 21300000, guid: f7f5f0f519012c845920bef8c920938d,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 3ec0688767871dd49b14bf1a3661f8ca, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 3ec0688767871dd49b14bf1a3661f8ca, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: f7f5f0f519012c845920bef8c920938d, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f7f5f0f519012c845920bef8c920938d, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -276,6 +277,7 @@ MonoBehaviour:
   slotIndex: 0
   item: {fileID: 0}
   isEmpty: 0
+  isAmmo: 0
   isStackable: 0
   amount: 0
   weaponHealth: 0
