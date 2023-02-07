@@ -213,6 +213,10 @@ public class PlayerMovement : MonoBehaviour
         if (Sprinting)
         {
             player._stamina -= Settings.StaminaFallRate * Time.deltaTime;
+            if (player._stamina <= 0) 
+            {
+                player._stamina = 0;
+            }
             HUDManager.instance._Stamina.gameObject.SetActive(true);
         } 
             else if (!Sprinting)

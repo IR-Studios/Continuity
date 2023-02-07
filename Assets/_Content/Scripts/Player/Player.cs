@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
                 {
                     tree.DamageTree(10);
                     int randomNum = Random.Range(0, 25);
-                    IR_Inventory.instance.AddItem(tree.ItemToGive, tree.ItemToGive.itemHealth, randomNum);
+                    IR_InventoryV2.instance.AddItem(tree.ItemToGive,randomNum, tree.ItemToGive.itemHealth);
                 }
                 
             }

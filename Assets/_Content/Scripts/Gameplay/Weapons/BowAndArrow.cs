@@ -42,7 +42,8 @@ public class BowAndArrow : MonoBehaviour
     }
     public void Update() 
     {
-        HUDManager.instance.AmmoCount.text = ArrowLoaded + " | " + ArrowAmmoReserve;
+        HUDManager.instance.AmmoCount.text = ArrowAmmoReserve.ToString();
+        HUDManager.instance.AmmoLoaded.text = ArrowLoaded.ToString();
         ArrowAmmoReserve = IR_InventoryV2.instance.GetAmmo("arrow");
         GetInput();
     }
@@ -60,7 +61,7 @@ public class BowAndArrow : MonoBehaviour
             ShootArrow();
         }
 
-        if (Rebind.GetInputDown("Reload") && ArrowLoaded <= 0) 
+        if (Rebind.GetInputDown("Reload") && ArrowLoaded <= 0 && ArrowAmmoReserve > 0) 
         {
             ReloadArrow();
         }

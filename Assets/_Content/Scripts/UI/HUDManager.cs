@@ -36,6 +36,7 @@ public class HUDManager : MonoBehaviour
 
     [Header("Weapons")]
     public TextMeshProUGUI AmmoCount;
+    public TextMeshProUGUI AmmoLoaded;
     public GameObject AmmoObj;
 
     [Header("Game Telemetry")]
